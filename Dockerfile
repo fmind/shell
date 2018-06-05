@@ -1,8 +1,10 @@
-FROM fedora:latest
+FROM ubuntu:latest
 
-ENTRYPOINT /usr/bin/zsh
+MAINTAINER fmind <dev@fmind.me>
 
-RUN dnf install -y git ansible
+RUN apt update && apt upgrade -y
+
+RUN apt install -y git ansible python3-pip
 
 RUN git clone https://github.com/fmind/dotfiles .dotfiles
 
@@ -12,6 +14,6 @@ RUN cd .dotfiles && ansible-playbook -i 'localhost,' -c local site.yml
 
 RUN usermod -s /usr/bin/zsh root
 
-RUN dnf -y update
+RUN apt clean && apt autoclean
 
-RUN dnf clean all
+ENTRYPOINT /usr/bin/zsh
