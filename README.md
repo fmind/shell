@@ -1,3 +1,3 @@
 # F :: Shell
 
- An interactive shell based on Docker, Ubuntu, Ansible and my dotfiles 
+Interactive shell that combines Ubuntu and my dotfiles.
