@@ -1,4 +1,4 @@
-TAG=fmind/shell
+TAG = fmind/shell
 
 all: build push;
 
