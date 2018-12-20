@@ -6,4 +6,4 @@ push:
 	docker push ${TAG}
 
 build:
-	docker build -t ${TAG} .
+	docker build -t ${TAG} --no-cache .
