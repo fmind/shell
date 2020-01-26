@@ -1,15 +1,23 @@
-FROM ubuntu:latest
-
-MAINTAINER fmind <dev@fmind.me>
+FROM ubuntu:18.04
+MAINTAINER fmind <fmind@fmind.me>
 
 RUN apt update && apt upgrade -y
+RUN apt install -y git sudo ansible python3-pip
 
-RUN apt install -y git ansible
+RUN echo "fmind ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+RUN useradd -rm -d /home/fmind -s /bin/bash -g root -G sudo -u 1000 fmind
 
-RUN git clone https://git.fmind.me/fmind/dotfiles dotfiles
+USER fmind
+WORKDIR /home/fmind
 
-RUN cd dotfiles && ansible-playbook -i 'localhost,' -c local site.yml
+RUN git clone https://github.com/fmind/dotfiles dotfiles
+RUN git clone https://github.com/fmind/devfiles devfiles
 
-RUN apt clean && apt autoclean
+# RUN cd dotfiles && ansible-playbook -c local -b site.yml
+# RUN cd devfiles && ansible-playbook -c local -b site.yml
 
-ENTRYPOINT /usr/bin/zsh
+# RUN apt clean && apt autoclean
+
+# ENTRYPOINT /usr/bin/byobu
+# add venv for ensure pip
+# ansible-playbook -c local --become --become-user=fmind site.yml
