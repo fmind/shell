@@ -12,9 +12,9 @@ RUN useradd -m -s /bin/bash -G sudo -U fmind && \
 
 USER fmind
 
-WORKDIR /home/fmind
+VOLUME /home/fmind/
 
-VOLUME /home/fmind/code
+WORKDIR /home/fmind
 
 RUN git clone --depth=1 https://github.com/fmind/dotfiles && \
     cd dotfiles && ansible-playbook -i inventory.ini site.yml
