@@ -1,6 +1,5 @@
-# VARS
-IMAGE = fmind/shell
-# TASKS
+IMAGE:=fmind/shell
+
 rebuild:
 	docker build --no-cache -t ${IMAGE} .
 

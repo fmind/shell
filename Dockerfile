@@ -22,5 +22,5 @@ RUN git clone --depth=1 https://github.com/fmind/dotfiles && \
     cd dotfiles && ansible-playbook -i inventory.ini site.yml
 RUN git clone --depth=1 https://github.com/fmind/devfiles && \
     cd devfiles && ansible-playbook -i inventory.ini site.yml
-# define default run commnad
-CMD /usr/bin/byobu
+# define default run command
+CMD /usr/bin/zsh
