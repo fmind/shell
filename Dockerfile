@@ -13,6 +13,8 @@ RUN useradd -m -s /bin/bash -G sudo -U fmind && \
 # define user environment
 USER fmind
 WORKDIR /home/fmind
+# define container exposes
+EXPOSE 8888/tcp
 # define container volumes
 VOLUME /home/fmind/.ssh
 VOLUME /home/fmind/.gnupg
