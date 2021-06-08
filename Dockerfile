@@ -26,4 +26,4 @@ RUN cd dotfiles && ansible-playbook -i inventory.ini site.yml --tag lite
 RUN git clone --depth=1 https://github.com/fmind/devfiles
 RUN cd devfiles && ansible-playbook -i inventory.ini site.yml --tag lite
 # define default run command
-CMD /usr/bin/byobu
+CMD /usr/bin/fish
