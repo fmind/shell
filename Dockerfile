@@ -21,9 +21,9 @@ VOLUME /home/fmind/.ssh
 VOLUME /home/fmind/.gnupg
 VOLUME /home/fmind/projects
 # install git repository
-RUN git clone --depth=1 https://github.com/fmind/dotfiles
-RUN cd dotfiles && ansible-playbook -i inventory.ini site.yml --tag lite
 RUN git clone --depth=1 https://github.com/fmind/devfiles
 RUN cd devfiles && ansible-playbook -i inventory.ini site.yml --tag lite
+RUN git clone --depth=1 https://github.com/fmind/dotfiles
+RUN cd dotfiles && ansible-playbook -i inventory.ini site.yml --tag lite
 # define default run command
 CMD /usr/bin/fish
