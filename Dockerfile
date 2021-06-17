@@ -14,6 +14,7 @@ RUN echo "fmind ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER fmind
 WORKDIR /home/fmind
 # define port exposes
+EXPOSE 4001/tcp
 EXPOSE 8000/tcp
 EXPOSE 8888/tcp
 # define mount volumes
